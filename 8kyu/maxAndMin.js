@@ -9,35 +9,16 @@ Examples (Input -> Output)
  */
 //My solution
 var min = function (list) {
-  let smallestNum;
-  if (list.length === 1) {
-    smallestNum = list[0];
-  } else {
-    for (let i = 0; i < list.length; i++) {
-      list[i] < list[i - 1]
-        ? (smallestNum = list[i])
-        : (smallestNum = list[i - 1]);
-    }
-  }
-
+  const smallestNum = Math.min(...list);
   return smallestNum;
 };
 
 var max = function (list) {
-  let largestNum;
-  if (list.length === 1) {
-    largestNum = list[0];
-  } else {
-    for (let i = 0; i < list.length; i++) {
-      list[i] > list[i - 1]
-        ? (largestNum = list[i])
-        : (largestNum = list[i - 1]);
-    }
-  }
+  const largestNum = Math.max(...list);
 
   return largestNum;
 };
 const num = [5, 4, 3, 1000, -1000, 5000];
 
-console.log(max([5]));
 console.log(max(num));
+console.log(min(num));
