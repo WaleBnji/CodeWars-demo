@@ -13,13 +13,15 @@ Examples
 //My solution
 function digitalRoot(n) {
   //Recursive function
-  const splittedNum = n.toString().split('').join('+');
-  let rootSum = eval(splittedNum);
-  console.log(rootSum);
-  if (rootSum > 9) {
-    digitalRoot(rootSum);
-    return rootSum;
+  const numArr = n.toString().split('');
+  let sum = numArr.map((num) => Number(num)).reduce((a, b) => a + b, 0);
+  console.log(sum);
+  if (sum < 10) {
+    return sum;
+  } else if (sum > 9) {
+    digitalRoot(sum);
   }
+  
 }
 
 console.log(digitalRoot(942));
