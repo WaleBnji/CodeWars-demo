@@ -11,17 +11,19 @@ Examples
 
 //My solution
 function toCamelCase(str) {
-  const replaced = str.replaceAll('-', ' ').replaceAll('_', ' ');
-  const arr = replaced.split(' ');
-  for (let i = 0; i < arr.length; i++) {
-    const capital = arr.map((word) => {
-      if (i > 0) {
-        const wordArr = word.split('');
-        const firstChar = wordArr[0].toUpperCase;
-        const newWord = word.replace(wordArr[0], firstChar);
-      }
-    });
+  //remove dash or underscore
+  //return the first letter as it is
+  //return subsequent letters with their first character capitalized
+  //Join the words togethr
+  const words = str.replaceAll('-', ' ').replaceAll('_', ' ').split(' ');
+  const result = [];
+  result.push(words[0]);
+  for (let i = 1; i < words.length; i++) {
+    const firstChar = words[i].split('')[0].toUpperCase();
+    const rest = words[i].slice(1);
+    result.push(`${firstChar}${rest}`);
   }
+  return result.join('');
 }
 
-console.log(toCamelCase('the-stealth-warrior'));
+console.log(toCamelCase('The_Stealth_Warrior'));
