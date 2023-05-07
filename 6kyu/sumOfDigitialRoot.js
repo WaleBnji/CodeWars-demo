@@ -12,16 +12,13 @@ Examples
 
 //My solution
 function digitalRoot(n) {
-  //Recursive function
   const numArr = n.toString().split('');
   let sum = numArr.map((num) => Number(num)).reduce((a, b) => a + b, 0);
   console.log(sum);
   if (sum < 10) {
     return sum;
-  } else if (sum > 9) {
-    digitalRoot(sum);
   }
-  
+  return digitalRoot(sum);
 }
 
-console.log(digitalRoot(942));
+console.log(digitalRoot(493193));

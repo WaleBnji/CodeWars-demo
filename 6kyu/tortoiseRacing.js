@@ -32,12 +32,17 @@ function race(v1, v2, g) {
   if (Number.isInteger(t)) {
     return [t, 0, 0];
   }
+  // const hour = Number(t.toString().split('.')[0]);
+  // const minutes = (Number(t.toString().split('.')[1]) * 60) / 10;
+  // if (Number.isInteger(minutes)) {
+  //   return [hour, minutes, 0];
+  // }
+  // const seconds = (Number(minutes.toString().split('.')[1]) * 60) / 10;
+  // return [hour, minutes, seconds];
   const hour = Number(t.toString().split('.')[0]);
-  const minutes = Number(`0.${t.toString().split('.')[1]}`) * 60;
-  if (Number.isInteger(minutes)) {
-    return [hour, minutes, 0];
-  }
-  const seconds = Number(`0.${minutes.toString().split('.')[1]}`) * 60;
-  return [hour, Math.floor(minutes), Math.floor(seconds)];
+  const minutes =
+    (Number(t.toString().split('.')[1]) * 60) /
+    Math.pow(10, t.toString().split('.').length);
+  console.log(minutes);
 }
-console.log(race(80, 100, 40));
+console.log(race(720, 850, 70));

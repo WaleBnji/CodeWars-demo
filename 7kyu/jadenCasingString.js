@@ -10,12 +10,20 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
  */
 
 //My solution
-String.prototype.toJadenCase = function (str) {
+const toJadenCase = (str) => {
   //Put the word in an array
   //Create an empty array and loop through the sentence array on each iteration, get the first letter of each word and then capitalise it.
   //Use slice to get the rest of the word and join them //Push the element into the empty array
   const words = str.split(' ');
-  console.log(words);
+  const jaden = [];
+  for (let i = 0; i < words.length; i++) {
+    const firstChar = words[i].split('')[0].toUpperCase();
+    const rest = words[i].slice(1);
+    jaden.push(`${firstChar}${rest}`);
+  }
+  console.log(jaden);
 };
 
-console.log(toJadenCase('How can mirrors be real if our eyes arent real'));
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
+const Wale = 'wale';
+console.log(Wale.split('')[0].toUpperCase());
