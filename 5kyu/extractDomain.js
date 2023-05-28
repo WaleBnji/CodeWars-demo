@@ -7,14 +7,7 @@
  */
 //My solution
 function domainName(url) {
-  const arr = url.slice(7).split('.');
-  for (let i = 0; i < arr.length; i++) {
-    if (arr.length === 3) {
-      return arr[1];
-    } else if (arr[i] !== 'www') {
-      return arr[0];
-    }
-  }
+  //
 }
 
 console.log(domainName('https://google.co.jp'));
