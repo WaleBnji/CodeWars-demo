@@ -8,16 +8,6 @@ uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
 uniqueInOrder([1,2,2,3,3])       == [1,2,3]
  */
 //My solution
-var uniqueInOrder = function (iterable) {
-  if (typeof iterable === 'string') {
-    const arr = iterable.split('');
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === arr[i + 1]) {
-        arr.splice(i, 1);
-      }
-    }
-    // return uniqueInOrder(...arr);
-  }
-};
+var uniqueInOrder = function (iterable) {};
 
 console.log(uniqueInOrder('AAAABBBCCDAABBB'));
