@@ -17,3 +17,20 @@ Error checking for text strings or other invalid inputs is not required, only va
  */
 
 //My solution
+function narcissistic(value) {
+  const exponents = [];
+  const arr = value
+    .toString()
+    .split('')
+    .map((num) => Number(num));
+  for (let i = 0; i < arr.length; i++) {
+    exponents.push(Math.pow(arr[i], arr.length));
+  }
+  return exponents.reduce(function (a, b) {
+    return a + b;
+  }, 0) === value
+    ? true
+    : false;
+}
+
+console.log(narcissistic(7));
