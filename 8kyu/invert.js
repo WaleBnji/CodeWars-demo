@@ -17,6 +17,3 @@ function invert(array) {
 }
 
 console.log(invert([1, -2, 3, -4, 5]));
-
-const n = 5;
-console.log(n * -1);
