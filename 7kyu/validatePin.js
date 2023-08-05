@@ -11,24 +11,14 @@ Examples (Input --> Output)
 
 //My solution
 function validatePIN(pin) {
-  console.log(pin.length);
-  const arr = pin.split('');
-  for (const i of arr) {
-    if (typeof i !== 'number') {
-      return false;
-    } else if (pin.length === 4) {
-      return true;
-    } else if (pin.length === 6) {
-      return true;
-    } else {
-      return false;
-    }
+  const length = pin.length;
+  const correctPin = length === 4 || length === 6;
+  const onlyNumbers = pin.match(/^\d+$/);
+  if (correctPin && onlyNumbers) {
+    return true;
+  } else {
+    return false;
   }
 }
-//   if (num) {
-//     return pin.length === 4 ? true : pin.length === 6 ? true : false;
-//   } else {
-//     return false;
-//   }
 
 console.log(validatePIN('1234'));
