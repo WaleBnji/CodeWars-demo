@@ -13,14 +13,13 @@ Note you should only return a number, the count of divisors. The numbers between
 
 //My solution
 function getDivisorsCnt(n) {
-  const arr = [];
-  for (let i = 1; i <= n; i++) {
-    const result = n / i;
-    if (Number.isInteger(result)) {
-      arr.push(i);
+  let count = 0;
+  for (let i = 1; i * i <= n; i++) {
+    if (n % i === 0) {
+      count += i * i === n ? 1 : 2;
     }
   }
-  return arr.length;
+  return count;
 }
 
 console.log(getDivisorsCnt(4));
