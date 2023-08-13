@@ -28,16 +28,14 @@ Assumption: Assume that Desired Principal 'D' is always greater than the initial
 
 //My solution
 function calculateYears(principal, interest, tax, desired) {
-  let years = 0;
-  const interestAmt = principal * interest;
-  const interestPostTax = interestAmt - interestAmt * tax;
-  let yearlyPay = principal + interestPostTax;
-  if (yearlyPay < desired) {
-    years += 1;
-    calculateYears(yearlyPay, interest, tax, desired);
+  let count = 0;
+  while (principal < desired) {
+    let intB = principal * interest;
+    let intA = intB - intB * tax;
+    principal += intA;
+    count++;
   }
-
-  return desired > principal ? years : 0;
+  return count;
 }
 
 console.log(calculateYears(1000, 0.05, 0.18, 1100));
