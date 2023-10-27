@@ -16,22 +16,21 @@ Find The Unique
 
 //My solution
 function findUniq(arr) {
-  const first = arr[0];
-  const last = arr[arr.length - 1];
-  const second = arr[1];
-  if (first === last && first === second) {
-    for (const num of arr) {
-      if (num !== first) {
-        return num;
-      }
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i].toString();
+    if (obj[element]) {
+      obj[element] += 1;
+    } else {
+      obj[element] = 1;
     }
-  } else if (first === last) {
-    for (const num of arr) {
-      if (num !== first) {
-        return num;
-      }
+  }
+for (const i in obj) {
+    console.log(typeof i);
+    if (obj[i] == 1) {
+      return Number(i);
     }
   }
 }
 
-console.log(findUniq([1, 0, 0]));
+console.log(findUniq([0, 0, 0.55, 0, 0]));
